@@ -6,7 +6,7 @@ import hot_redis
 import hug
 import requests
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 AUTH = ('tim', 'anr94230890tnarsikantAWFUNRSkviawentha')
 REDIS_AUTH = urlparse(os.environ.get('REDISCLOUD_URL'))
 ENDPOINT = 'http://tims-todo-list.herokuapp.com/todos'
