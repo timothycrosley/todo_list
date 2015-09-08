@@ -37,7 +37,3 @@ def todo(add=None, remove=None, endpoint='http://localhost:8000/todos', user='us
         return requests.delete(endpoint, data={'todo': remove}, auth=auth) and 'Successfully removed/completed todo'
 
     return "\n".join(requests.get(endpoint, auth=auth).json())
-
-
-if __name__ == '__main__':
-    todo.cli()
