@@ -41,4 +41,4 @@ def todo(add=None, remove=None, endpoint='http://tims-todo-list.herokuapp.com/to
     if remove:
         return requests.delete(endpoint, data={'todo': remove}, auth=auth) and 'Successfully removed/completed todo'
 
-    return "\n".join(requests.get(endpoint, auth=auth).json())
+    return "\t### Your Todos ###\n" + "\n".join(requests.get(endpoint, auth=auth).json())
