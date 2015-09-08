@@ -1,11 +1,15 @@
 '''Quite possibly the most simplistic remotely available todo list ever created'''
+import os
+from urllib.parse import urlparse
+
+import hot_redis
+import hug
 import requests
 
-import hug
-from hot_redis import List
-
 __version__ = '0.0.1'
-todos = List(key='my_todos')
+REDIS_AUTH = urlparse(os.environ.get('REDISCLOUD_URL'))
+hot_redis.configure({'host': REDIS_AUTH.hostname, 'port': REDIS_AUTH.port or 6379, 'password': REDIS_AUTH.password})
+todos = hot_redis.List(key='my_todos')
 authentication = hug.authentication.basic(hug.authentication.verify('user1', 'password1'))
 
 
