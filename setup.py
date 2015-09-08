@@ -18,7 +18,7 @@ setup(name='todo_list',
       py_modules=['todo_list'],
       entry_points={
         'console_scripts': [
-            'todo_list = todo_list:todo.cli',
+            'todo_list = todo_list:todo_list.cli',
         ]
       },
       requires=['hug', 'hot_redis', 'requests'],
