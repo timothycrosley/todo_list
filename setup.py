@@ -8,16 +8,9 @@ try:
 except ImportError:
     from distutils.core import setup, Command
 
-try:
-   import pypandoc
-   readme = pypandoc.convert('README.md', 'rst')
-except (IOError, ImportError, OSError, RuntimeError):
-   readme = ''
-
 setup(name='todo_list',
       version='0.0.1',
       description='Todo_list may quite possibly be the most simplistic remotely available todo list ever created.',
-      long_description=readme,
       author='Timothy Crosley',
       author_email='timothy.crosley@gmail.com',
       url='https://github.com/timothycrosley/todo_list',
