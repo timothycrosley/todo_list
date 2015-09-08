@@ -7,10 +7,11 @@ import hug
 import requests
 
 __version__ = '0.0.1'
+AUTH = ('tim', 'anr94230890tnarsikantAWFUNRSkviawentha')
 REDIS_AUTH = urlparse(os.environ.get('REDISCLOUD_URL'))
 hot_redis.configure({'host': REDIS_AUTH.hostname, 'port': REDIS_AUTH.port or 6379, 'password': REDIS_AUTH.password})
 todos = hot_redis.List(key='my_todos')
-authentication = hug.authentication.basic(hug.authentication.verify('user1', 'password1'))
+authentication = hug.authentication.basic(hug.authentication.verify(*AUTH))
 
 
 @hug.get('/todos')
@@ -32,7 +33,7 @@ def remove_todo(todo):
 
 
 @hug.cli(version=__version__)
-def todo(add=None, remove=None, endpoint='http://localhost:8000/todos', user='user1', password='password1'):
+def todo(add=None, remove=None, endpoint='http://tims-todo-list.herokuapp.com/todos', user=AUTH[0], password=AUTH[1]):
     '''A super simple remotely available todo list'''
     auth=(user, password)
     if add:
