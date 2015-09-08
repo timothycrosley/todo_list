@@ -9,7 +9,7 @@ except ImportError:
     from distutils.core import setup, Command
 
 setup(name='todo_list',
-      version='0.0.1',
+      version='0.0.2',
       description='Todo_list may quite possibly be the most simplistic remotely available todo list ever created.',
       author='Timothy Crosley',
       author_email='timothy.crosley@gmail.com',
@@ -18,7 +18,7 @@ setup(name='todo_list',
       py_modules=['todo_list'],
       entry_points={
         'console_scripts': [
-            'todo_list = todo_list:todo.cli',
+            'todo_list = todo_list:todo_list.cli',
         ]
       },
       requires=['hug', 'hot_redis', 'requests'],
