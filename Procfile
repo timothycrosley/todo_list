@@ -1,1 +1,1 @@
-web: gunicorn todo_list:__hug__
+web: gunicorn todo_list:__hug_wsgi__
