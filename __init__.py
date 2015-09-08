@@ -4,7 +4,7 @@ import requests
 import hug
 from hot_redis import List
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 todos = List(key='my_todos')
 authentication = hug.authentication.basic(hug.authentication.verify('user1', 'password1'))
 

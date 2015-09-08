@@ -6,7 +6,7 @@ import hot_redis
 import hug
 import requests
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 AUTH = ('tim', 'anr94230890tnarsikantAWFUNRSkviawentha')
 REDIS_AUTH = urlparse(os.environ.get('REDISCLOUD_URL'))
 hot_redis.configure({'host': REDIS_AUTH.hostname, 'port': REDIS_AUTH.port or 6379, 'password': REDIS_AUTH.password})
