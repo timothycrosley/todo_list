@@ -2,7 +2,7 @@
 import os
 from urllib.parse import urlparse
 
-import hot_redis
+import hot_redis as redis
 import hug
 import requests
 
@@ -10,8 +10,8 @@ __version__ = '0.0.3'
 AUTH = ('tim', 'anr94230890tnarsikantAWFUNRSkviawentha')
 REDIS_AUTH = urlparse(os.environ.get('REDISCLOUD_URL'))
 ENDPOINT = 'http://tims-todo-list.herokuapp.com/todos'
-hot_redis.configure({'host': REDIS_AUTH.hostname, 'port': REDIS_AUTH.port or 6379, 'password': REDIS_AUTH.password})
-todos = hot_redis.List(key='my_todos')
+redis.configure({'host': REDIS_AUTH.hostname, 'port': REDIS_AUTH.port or 6379, 'password': REDIS_AUTH.password})
+todos = redis.List(key='my_todos')
 authentication = hug.authentication.basic(hug.authentication.verify(*AUTH))
 
 
